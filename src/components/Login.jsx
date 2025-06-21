@@ -26,7 +26,7 @@ const Login = () => {
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
-          type="email"
+          type="Email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
