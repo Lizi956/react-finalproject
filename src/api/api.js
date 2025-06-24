@@ -20,12 +20,10 @@ export const fetchTopMovies = async () => {
 };
 
 export const fetchMovieDetails = async (id) => {
-  const response = await fetch(`${API_URL}${id}`, options);
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(
-      `Failed to fetch movie details: ${response.status} - ${errorText}`
-    );
+  const movies = await fetchTopMovies();
+  const movie = movies.find((m) => m.id === id || m.rank === id);
+  if (!movie) {
+    throw new Error("Movie not found");
   }
-  return response.json();
+  return movie;
 };
