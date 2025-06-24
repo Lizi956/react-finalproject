@@ -12,9 +12,7 @@ export const fetchTopMovies = async () => {
   const response = await fetch(API_URL, options);
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(
-      `Failed to fetch movies: ${response.status} - ${errorText}`
-    );
+    throw new Error(`Failed to fetch movies: ${response.status} - ${errorText}`);
   }
   return response.json();
 };
